@@ -6,6 +6,7 @@ var router = express.Router()
 const handlebars= require('express-handlebars')
 var moduloLeerChat= require('./moduloLeerChat');
 var moduloGuardarChat= require('./moduloGuardarChat');
+var moduloLeer= require('./moduloLeer');
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 // Le pasamos la constante app que creamos arriba
@@ -30,9 +31,11 @@ app.engine(
 
 
       router.get('/', function (req, res) {
-        res.status(200).render('cliente');
+        res.status(200).render('chat');
       })
-      
+      router.get('/lista', function (req, res) {
+        res.status(200).render('lista');
+      })
  
     // El servidor funcionando en el puerto 3000
     app.use('/',router)
@@ -55,8 +58,12 @@ app.engine(
       socket.on('paquete', data => { //recibe informacion 
         moduloGuardarChat.guardar(data.mail,data.mensaje,data.fecha,fs)
   
-      
+
        })
+
+       moduloLeer.leer(fs).then(guardados=>{
+        socket.emit('lista', JSON.parse(guardados))
+      })  
     
     })
 

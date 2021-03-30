@@ -16,5 +16,11 @@
 		"title": "maxi",
 		"price": "345355",
 		"thumbnail": "https://i.ibb.co/hVT6S0V/procesador1.jpg"
+	},
+	{
+		"id": 34,
+		"title": "camiseta",
+		"price": "3211",
+		"thumbnail": "https://i.ibb.co/CQcgNgN/procesador2.jpg"
 	}
 ]  
