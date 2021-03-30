@@ -22,5 +22,11 @@
 		"title": "camiseta",
 		"price": "3211",
 		"thumbnail": "https://i.ibb.co/CQcgNgN/procesador2.jpg"
+	},
+	{
+		"id": 35,
+		"title": "remera",
+		"price": "343434",
+		"thumbnail": "https://i.ibb.co/bPJLDD3/placavideo1.jpg"
 	}
 ]  
