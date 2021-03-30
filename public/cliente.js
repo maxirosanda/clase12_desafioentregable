@@ -1,18 +1,21 @@
 const socket = io(); // Ya podemos empezar a usar los sockets desde el cliente :)
- const enviarCaracter = (e) =>{
-     socket.emit('ingreso caracter', e.value)
- }
- const enviarFrase = () =>{
-    let frase = document.getElementById("frase").value
-    socket.emit('frase', frase)
+
+ 
+const enviarMensaje = () =>{
+    let paquete = { mail: document.getElementById("mail").value,
+     mensaje: document.getElementById("mensaje").value,
+     fecha: "18/07/1987"
+}
+    socket.emit('paquete', paquete)
 } 
-socket.on('frases', data => {
+socket.on('vermensajes', data => {
     let texto =""
-    data.map(el =>{
-        texto += `<h3>socket : ${el.socketid} mensaje ${el.mensaje}</h3><br>`    
+    data.forEach((el,index) =>{
+      texto += `<h3>socket : ${el.mail} mensaje ${el.mensaje} fecha ${el.fecha} </h3><br>`    
    })
-   document.getElementById("contenedorfraces").innerHTML=texto
+   document.getElementById("contenedordatos").innerHTML=texto
 })
+
 
 
 

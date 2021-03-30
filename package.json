@@ -1,11 +1,10 @@
 {
   "name": "desafiogenericio1",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "index2.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon index2.js"
   },
   "keywords": [],
   "author": "",
@@ -18,5 +17,14 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.2.1",
     "socket.io": "^4.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxirosanda/clase12_desafioentregable.git"
+  },
+  "bugs": {
+    "url": "https://github.com/maxirosanda/clase12_desafioentregable/issues"
+  },
+  "homepage": "https://github.com/maxirosanda/clase12_desafioentregable#readme",
+  "description": ""
 }

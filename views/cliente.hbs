@@ -9,12 +9,11 @@
 </head>
 <body>
 <h1>tutorial socket</h1>
-<input type="text"  onkeyup="enviarCaracter(this)" id="ingreso">
-<p id="parrafo"></p> 
 <br>
-<input type="text" id="frase">
-<button onclick="enviarFrase()">enviar</button>
-<div id="contenedorfraces"></div>
+<input type="text" id="mail">
+<input type="text" id="mensaje">
+<button onclick="enviarMensaje()">enviar</button>
+<div id="contenedordatos"></div>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/cliente.js"></script>   
 </body>

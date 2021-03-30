@@ -10,6 +10,7 @@ const handlebars= require('express-handlebars')
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
+
 var arreglo=[]
 // configuracion handlebars
 app.engine(
@@ -90,3 +91,5 @@ const server = app.listen(port, () => {
   })
   server.on("error",error =>console.log(`error en servidor ${error}`))
 
+
+  
