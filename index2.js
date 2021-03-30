@@ -5,6 +5,7 @@ const app = express()
 var router = express.Router()
 const handlebars= require('express-handlebars')
 var moduloLeerChat= require('./moduloLeerChat');
+var moduloGuardarChat= require('./moduloGuardarChat');
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 // Le pasamos la constante app que creamos arriba
@@ -52,10 +53,9 @@ app.engine(
    
       
       socket.on('paquete', data => { //recibe informacion 
-
-      console.log(data)
-     
-      //io.sockets.emit('frases', frases) //manda a todos los clientes
+        moduloGuardarChat.guardar(data.mail,data.mensaje,data.fecha,fs)
+  
+      
        })
     
     })
