@@ -1,7 +1,7 @@
 module.exports = {
     leer : async function(fs) {
             try{
-              let contenido = await fs.promises.readFile(`./chat.js`,`utf-8`)
+              let contenido = await fs.promises.readFile(`./datos/chat.js`,`utf-8`)
                return contenido
             }
             catch{

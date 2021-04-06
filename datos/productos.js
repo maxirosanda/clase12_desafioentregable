@@ -28,5 +28,17 @@
 		"title": "remera",
 		"price": "343434",
 		"thumbnail": "https://i.ibb.co/bPJLDD3/placavideo1.jpg"
+	},
+	{
+		"id": 36,
+		"title": "maxi",
+		"price": "345355",
+		"thumbnail": "hgshs"
+	},
+	{
+		"id": 37,
+		"title": "asfafAF",
+		"price": "5463",
+		"thumbnail": "2222222"
 	}
 ]  

@@ -1,4 +1,4 @@
-const socket = io(); // Ya podemos empezar a usar los sockets desde el cliente :)
+const socket = io(); 
 const fecha = new Date();
 
 const enviarMensaje = () =>{
@@ -12,10 +12,19 @@ socket.on('vermensajes', data => {
     
     let texto =""
     data.forEach((el,index) =>{
-      texto += `<h3>Mail : ${el.mail} mensaje ${el.mensaje} fecha ${el.fecha} </h3><br>`    
+      texto += `<li class="list-group-item"> Mail : ${el.mail} mensaje ${el.mensaje} fecha ${el.fecha} </li>`    
    })
    document.getElementById("contenedordatos").innerHTML=texto
 
+})
+
+socket.on('lista', data => {
+    let texto =""
+    data.forEach((el,index) =>{
+      texto += `<h3>id : ${el.id} title ${el.title} price ${el.price} price ${el.thumbnail} </h3><br>`    
+   })
+   document.getElementById("contenedordatos2").innerHTML=texto
+  
 })
 
 

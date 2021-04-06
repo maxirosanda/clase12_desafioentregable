@@ -1,14 +1,21 @@
 const fs = require('fs')
 const express = require('express')
-var moduloLeer= require('./moduloLeer');
-var moduloGuardar= require('./moduloGuardar');
-var moduloActualizar =require('./moduloActualizar')
-var moduloBorrar = require('./moduloBorrar')
+var moduloLeer= require('./modulos/moduloLeer');
+var moduloGuardar= require('./modulos/moduloGuardar');
+var moduloActualizar =require('./modulos/moduloActualizar')
+var moduloBorrar = require('./modulos/moduloBorrar')
+var moduloLeerChat= require('./modulos/moduloLeerChat');
+var moduloGuardarChat= require('./modulos/moduloGuardarChat');
 const app = express()
 var router = express.Router()
 const handlebars= require('express-handlebars')
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
+//----------------------------------------------
+const http = require('http').Server(app)
+const io = require('socket.io')(http)
+//-------------------------------
+
 
 
 var arreglo=[]
@@ -90,6 +97,39 @@ const server = app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
   })
   server.on("error",error =>console.log(`error en servidor ${error}`))
+  //----------------------------------------------------------------------
+http.listen(3000, () => console.log('SERVER ON'))
+
+//-------------------------------------------------------------------------
+
+router.get('/chat', function (req, res) {
+  res.status(200).render('./partials/chat');
+})
+router.get('/lista2', function (req, res) {
+  res.status(200).render('./partials/lista');
+})
+
+//-------------------------------------
+io.on('connection', (socket) => {
+// "connection" se ejecuta la primera vez que se abre una nueva conexión
+  console.log('¡Nuevo cliente conectado!')
+ 
+  moduloLeerChat.leer(fs).then(guardados=>{
+    socket.emit('vermensajes', JSON.parse(guardados))
+  })  
+
+  // 
+
+  
+  socket.on('paquete', data => { //recibe informacion 
+    moduloGuardarChat.guardar(data.mail,data.mensaje,data.fecha,fs)
 
 
+   })
+
+   moduloLeer.leer(fs).then(guardados=>{
+    socket.emit('lista', JSON.parse(guardados))
+  })  
+
+})
   
