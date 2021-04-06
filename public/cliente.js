@@ -19,10 +19,28 @@ socket.on('vermensajes', data => {
 })
 
 socket.on('lista', data => {
-    let texto =""
+    let texto =`<div class="col-6">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Imagen</th>
+        </tr>
+      </thead>
+      <tbody>`
     data.forEach((el,index) =>{
-      texto += `<h3>id : ${el.id} title ${el.title} price ${el.price} price ${el.thumbnail} </h3><br>`    
+      texto += `<tr>
+      <th scope="row"> ${el.id}</th>
+      <td>${el.title}</td>
+      <td>${el.price}</td>
+      <td><img src="${el.thumbnail}" class="img-fluid" alt="Responsive image"></td>
+    </tr>`    
    })
+   texto +=`  </tbody>
+   </table>
+   </div>` 
    document.getElementById("contenedordatos2").innerHTML=texto
   
 })
