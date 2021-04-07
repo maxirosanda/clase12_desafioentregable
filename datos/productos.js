@@ -25,8 +25,8 @@
 	},
 	{
 		"id": 35,
-		"title": "remera",
-		"price": "343434",
+		"title": "remera4",
+		"price": "800",
 		"thumbnail": "https://i.ibb.co/bPJLDD3/placavideo1.jpg"
 	}
-]  
+]

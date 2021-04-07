@@ -1,10 +1,9 @@
-const cliente = () => {
 const socket = io(); 
 const fecha = new Date();
 
 const enviarMensaje = () =>{
-    let paquete = { mail: document.getElementById("mail").value,
-     mensaje: document.getElementById("mensaje").value,
+    let paquete = { mail: (document.getElementById("mail") as HTMLInputElement) .value,
+     mensaje:(document.getElementById("mensaje") as HTMLInputElement).value,
      fecha: `${fecha.getDay()}/${fecha.getMonth()}/${fecha.getFullYear()} ${fecha.getHours()}:${fecha.getMinutes()}:${fecha.getSeconds()} `
 }
     socket.emit('paquete', paquete)
@@ -46,8 +45,7 @@ socket.on('lista', data => {
   
 })
 
-}
-cliente()
+
 
 
 

@@ -1,7 +1,7 @@
 module.exports = {
     actualizar : function(nombre,precio,url,id,fs) {
-        var arreglo =[]
-        var guardados
+        let arreglo =[]
+        let guardados
         async function leer(){
             
             try{
@@ -42,7 +42,7 @@ module.exports = {
                     
                 }
             }
-            agregar(this.archivo)
+            agregar()
             
         })
     }

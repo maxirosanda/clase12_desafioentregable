@@ -1,7 +1,7 @@
 module.exports = {
-    borrar : function(id,fs) {
-        let arreglo =[]
-        let guardados
+    borrar : function(id:string,fs) {
+        let arreglo:any[] = []
+        let guardados:any
         
         async function leer(){
             
@@ -38,7 +38,7 @@ module.exports = {
                     
                 }
             }
-            agregar(this.archivo)
+            agregar()
            
         })
     }

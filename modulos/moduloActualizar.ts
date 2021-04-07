@@ -1,8 +1,7 @@
 module.exports = {
-    borrar : function(id,fs) {
-        let arreglo =[]
-        let guardados
-        
+    actualizar : function(nombre:string,precio:string,url:string,id:string,fs) {
+        let arreglo:any[] =[]
+        let guardados:any
         async function leer(){
             
             try{
@@ -22,12 +21,17 @@ module.exports = {
             if(guardados) arreglo = JSON.parse(guardados)
             arreglo.forEach((element,index) =>{
                 if (element.id == id){
-                    arreglo.splice(index, 1);
-                    
-                }    
+                    let objeto:any =  {
+                        id : element.id,
+                        title: nombre,
+                        price: precio,
+                        thumbnail: url
+                    }
+                  arreglo.splice(index,1,objeto)    
+                }
 
             })
-           
+        
             async function agregar(){
                 
                 try{
@@ -38,8 +42,8 @@ module.exports = {
                     
                 }
             }
-            agregar(this.archivo)
-           
+            agregar()
+            
         })
     }
 

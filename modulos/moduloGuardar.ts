@@ -1,8 +1,8 @@
 module.exports = {
-    guardar : function(nombre,precio,url,fs) {
-        let arrego =[]
-        let guardados
-        let cont
+    guardar : function(nombre:string,precio:string,url:string,fs) {
+        let arreglo:any[] =[]
+        let guardados:any
+        let cont:number
         async function leer(){
             
             try{
@@ -22,19 +22,19 @@ module.exports = {
         }
     
         leer().then(()=>{
-            if(guardados) arrego = JSON.parse(guardados)
+            if(guardados) arreglo = JSON.parse(guardados)
             cont = cont + 1
-            let objeto =  {
+            let objeto:any =  {
                 id :cont,
                 title: nombre,
                 price: precio,
                 thumbnail: url
             }
-            arrego.push(objeto)
+            arreglo.push(objeto)
             async function agregar(){
                 
                 try{
-                    await fs.promises.writeFile(`./datos/productos.js`,`${JSON.stringify(arrego, null,'\t') }  \n`)
+                    await fs.promises.writeFile(`./datos/productos.js`,`${JSON.stringify(arreglo, null,'\t') }  \n`)
                     await fs.promises.writeFile(`./datos/cont.js`,`${cont}  \n`)
                 }
                 catch{
@@ -42,7 +42,7 @@ module.exports = {
                     
                 }
             }
-            agregar(this.archivo)
+            agregar()
             
         })
     }

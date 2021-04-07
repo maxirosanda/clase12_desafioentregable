@@ -1,8 +1,7 @@
 module.exports = {
     guardar : function(mail,mensaje,fecha,fs) {
-        var arrego =[]
-        var guardados
-        var cont
+        let arrego =[]
+        let guardados
         async function leer(){
             
             try{
@@ -21,7 +20,7 @@ module.exports = {
     
         leer().then(()=>{
             if(guardados) arrego = JSON.parse(guardados)
-            var objeto =  {
+            let objeto =  {
                 mail:mail,
                 mensaje: mensaje,
                 fecha: fecha

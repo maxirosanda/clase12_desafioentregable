@@ -17,7 +17,7 @@ const io = require('socket.io')(http)
 
 //-------------------------------
 
-let arreglo=[]
+let arreglo:any[]=[]
 
 // configuracion handlebars
 app.engine(
@@ -45,8 +45,8 @@ moduloLeer.leer(fs).then(guardados=>{
 //-----------------------Producto individual------------------------------------
 
  router.get('/listar/:id', function (req, res) {
-    let id = parseInt(req.params.id)
-    let existe =false
+    let id:number = parseInt(req.params.id)
+    let existe:boolean =false
     arreglo.forEach((element,index) =>{
       if (element.id == id){
         res.status(200).json(arreglo[index])   
